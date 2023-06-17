@@ -3,9 +3,6 @@ import { useFormik } from 'formik'
 import { useState } from 'react'
 import React from 'react'
 
-
-
-
 import { useNavigate } from 'react-router-dom'
 
 export default function Login({saveUserData}) {
@@ -20,10 +17,10 @@ const [errorformik, seterrorformik] = useState()
       seterrorformik(e.response.data.message) })
 
       if (data.message==='success'){
-        localStorage.setItem('userdata',data.message)
+        localStorage.setItem('userdata',data.token)
         saveUserData()
         setisloding(false);
-          navagito('/');
+        navagito('/');
             
           }
     

@@ -17,18 +17,20 @@ import Login from './components/Login/Login';
 import LogOut from './components/LogOut/LogOut';
 import { useState } from 'react';
 import jwtDecode from 'jwt-decode';
+import YesOrNo from './components/YesOrNo/YesOrNo';
 
 function App() {
-
+  const [userData, setuserData] = useState(null)
+  
   const routers = createBrowserRouter([
     {
       path: '', element: <Layout userData={userData}/>, children: [
-        { index: true, element: <Home /> },
-        { path: 'cart', element: <Cart /> },
-        { path: 'product', element: <Products /> },
-        { path: 'cati', element: <Categories /> },
-        { path: 'brand', element: <Brands/> },
-        { path: 'Register', element: <Register /> },
+        { index: true, element:<YesOrNo> <Home /></YesOrNo> },
+        { path: 'cart', element: <YesOrNo> <Cart /></YesOrNo> },
+        { path: 'product', element: <YesOrNo> <Products/></YesOrNo>  },
+        { path: 'cati', element: <YesOrNo> <Categories /></YesOrNo>  },
+        { path: 'brand', element: <YesOrNo> <Brands/></YesOrNo>  },
+        { path: 'Register', element:  <YesOrNo> <Register /></YesOrNo> },
         { path: 'Login', element: <Login saveUserData={saveUserData} /> },
         { path: 'LogOut', element: <LogOut/> },
         { path: '*', element: <Notfount/> },
@@ -36,16 +38,17 @@ function App() {
     }
   
   ]);
-const [userData, setuserData] = useState(null)
-  
+
+
+
 function saveUserData (){
 
-  let encodet =localStorage.getItem('userdata');
+  let encodet= localStorage.getItem('userdata')
   let decodete =jwtDecode(encodet);
   setuserData(decodete);
 }
 
-  return <RouterProvider router={routers}></RouterProvider>
+  return <RouterProvider router={routers}> </RouterProvider>
 };
 
 export default App;

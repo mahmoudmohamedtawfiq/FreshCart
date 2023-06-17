@@ -17,7 +17,7 @@ export default function Navbar({userData}) {
           </button>
           
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          {userData!==null?
+          {userData !==null?
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="">Home</Link>
@@ -64,7 +64,7 @@ export default function Navbar({userData}) {
                   <i class="fa-brands fa-github"></i>
                 </Link>
               </li>
-            {userData===null?     <>
+            {userData===null? <>
           <li className="nav-item">
             <Link className="nav-link active" aria-current="page" to="Register">
               Register
@@ -76,22 +76,13 @@ export default function Navbar({userData}) {
               Login
             </Link>
           </li>
-          </>: <li className="nav-item">
+          </>:<li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="LogOut">
                   LogOut
                 </Link>
               </li>}
            
-         
-            
-        
-      
-           
-            
-           
-             
-
-             
+       
 
             </ul>
           </div>
