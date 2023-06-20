@@ -55,6 +55,13 @@ a , a:hover{
     transform: translateY(0%);
 
 }
+
+
+.spanerOne{
+    background-color: beige ;
+    width: 100vh;
+
+}
 .font-sm
 {
     font-size: 14px;

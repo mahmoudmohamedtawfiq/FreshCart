@@ -3,15 +3,15 @@ import { Navigate } from 'react-router-dom'
 
 
 
-export default function YesOrNo(props) {
+export default function YesOrNo({userData , children}) {
  
 
 
 
-  if(localStorage.getItem('userdata')==null){
+  if(userData){
+    return children
 
+  }else {
     return <Navigate to={'login'}/>
-}else {
-  return props.children
 }
 }

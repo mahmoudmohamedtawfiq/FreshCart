@@ -1,4 +1,5 @@
 import React from 'react'
+import Spaner from '../spaner/Spaner'
 
 export default function Footer() {
 
@@ -12,7 +13,7 @@ export default function Footer() {
     </div>
   </div>  
   </div>
- 
+
 
   </>
     

@@ -18,21 +18,34 @@ import LogOut from './components/LogOut/LogOut';
 import { useState } from 'react';
 import jwtDecode from 'jwt-decode';
 import YesOrNo from './components/YesOrNo/YesOrNo';
+import AddProductDetalis from './components/AddProductDetalis/AddProductDetalis';
 
 function App() {
-  const [userData, setuserData] = useState(null)
+  const [userData, setuserData] = useState(null);
+
+
+
+  function saveUserData (){
+
+    let encodet= localStorage.getItem('userdata')
+    let decodete =jwtDecode(encodet);
+    setuserData(decodete);
+  }
+  
   
   const routers = createBrowserRouter([
     {
       path: '', element: <Layout userData={userData}/>, children: [
-        { index: true, element:<YesOrNo> <Home /></YesOrNo> },
-        { path: 'cart', element: <YesOrNo> <Cart /></YesOrNo> },
-        { path: 'product', element: <YesOrNo> <Products/></YesOrNo>  },
-        { path: 'cati', element: <YesOrNo> <Categories /></YesOrNo>  },
-        { path: 'brand', element: <YesOrNo> <Brands/></YesOrNo>  },
-        { path: 'Register', element:  <YesOrNo> <Register /></YesOrNo> },
+        { index: true, element:<YesOrNo userData={userData}> <Home /></YesOrNo> },
+        { path: 'cart', element: <YesOrNo userData={userData}> <Cart /></YesOrNo> },
+        { path: 'product', element: <YesOrNo userData={userData}> <Products/></YesOrNo>  },
+        { path: 'cati', element: <YesOrNo userData={userData}> <Categories /></YesOrNo>  },
+        { path: 'brand', element: <YesOrNo userData={userData}> <Brands/></YesOrNo>  },
+        { path: 'Register', element:  <Register /> },
+        { path: 'AddProductDetalis/:id', element: <AddProductDetalis/> },
         { path: 'Login', element: <Login saveUserData={saveUserData} /> },
         { path: 'LogOut', element: <LogOut/> },
+      
         { path: '*', element: <Notfount/> },
       ]
     }
@@ -41,12 +54,6 @@ function App() {
 
 
 
-function saveUserData (){
-
-  let encodet= localStorage.getItem('userdata')
-  let decodete =jwtDecode(encodet);
-  setuserData(decodete);
-}
 
   return <RouterProvider router={routers}> </RouterProvider>
 };
