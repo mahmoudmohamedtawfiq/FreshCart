@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import axios from 'axios';
 
@@ -14,13 +14,15 @@ export default function ShowCategoriesForHome() {
         let { data } = await axios.get('https://route-ecommerce.onrender.com/api/v1/categories')
 
         setCategories(data.data);
-    };
 
-useEffect(() => {
 
-    CategoriesForHome()
- 
-}, [])
+};
+
+    useEffect(() => {
+
+        CategoriesForHome()
+
+    }, []);
 
 
     const settings = {
@@ -32,22 +34,21 @@ useEffect(() => {
     };
 
     return <>
-    <div className="container">
-   <div>
-            <h2 className='text-main'>Categories </h2>
-            <Slider {...settings}>
-                {Categories.map((categ)=> <div>
-                    
-                    <div>
-                    <img   className='w-100' src={categ.image} alt="" />
-
-                    </div>
-                </div>)} 
-            
-               
-            </Slider>
+        <div className="container mt-5 pt-4">
+            <div>
+                {/* <h2 className='text-main'>Categories </h2> */}
+                <Slider {...settings}>
+                    {Categories.map((categ) => <div>
+                        <div>
+                            <img style={{height:"300px"}} className='w-100'  src={categ.image} alt="" />
+                            
+                        </div>
+                        <h6 className='text-center p-2 text-main'>{categ.name}</h6>
+                    </div>)}
+                </Slider>
+             
+            </div>
         </div>
-    </div>
-     
+
     </>
-}
+};

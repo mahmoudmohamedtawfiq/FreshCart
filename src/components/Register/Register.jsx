@@ -79,13 +79,16 @@ if(!value.password){
 
     ,
     validate
-  })
+  });
+  
   return <>
+
     <div className="container">
       <div className="alert alert-dangder">{errorformik}</div>
       <form onSubmit={formik.handleSubmit} >
         <div className="row mt-5">
-         
+
+
           <div className="col-md-6 m-auto " >
             <h3 className='h1'>Regester Now :</h3>
             <label htmlFor="name">Name: </label>

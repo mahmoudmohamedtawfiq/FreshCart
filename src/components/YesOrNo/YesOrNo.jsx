@@ -3,15 +3,16 @@ import { Navigate } from 'react-router-dom'
 
 
 
-export default function YesOrNo({userData , children}) {
+export default function YesOrNo({ children}) {
  
 
 
 
-  if(userData){
-    return children
+  if(localStorage.getItem("userdata")!=null){
+
+    return children;
 
   }else {
-    return <Navigate to={'login'}/>
+    return <Navigate to={'/login'}/>
 }
 }

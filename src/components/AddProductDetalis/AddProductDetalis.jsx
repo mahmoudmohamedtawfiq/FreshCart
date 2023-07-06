@@ -41,12 +41,12 @@ export default function AddProductDetalis() {
 
 
 
-    return <div className="container"> <div className="row mt-5">
-
-            <div className="col-md-3 ">
+    return <div className="container">
+         <div className="row mt-5">
+            <div className="col-md-3">
                 <Slider {...settings}>
-                    
-                   {addproduct.images?addproduct.images.map((img)=><img className='w-100' src={img}/>): ""}
+                
+                   {addproduct.images?addproduct.images.map((img)=> <img className='w-100' src={img}/>): ""}
                 </Slider>
             </div>
             <div className="col-md-9 mt-5 ">
@@ -59,15 +59,13 @@ export default function AddProductDetalis() {
                         </div>
                         <div className='d-flex justify-content-between mt-5'>
                             <p> <span>{addproduct.price} Egypt</span></p>
-                            <p><span><i className='fas fa-star rating-color font-sm '> {addproduct.ratingsQuantity}</i> Egy</span></p>
+                            <p><span><i className='fas fa-star rating-color font-sm '>{addproduct.ratingsQuantity}</i> Egy</span></p>
                         </div>
                         <button className='btn btn-success w-100 mt-2'>+ Add to cart</button>
                     </div>
                 </div>
             </div>
         </div>
-        
-
     </div>
 
 }
