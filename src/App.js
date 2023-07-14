@@ -20,6 +20,9 @@ import jwtDecode from 'jwt-decode';
 import YesOrNo from './components/YesOrNo/YesOrNo';
 import AddProductDetalis from './components/AddProductDetalis/AddProductDetalis';
 import { ApiContextProvider } from './Context/ApiContext';
+import AllCategories from './components/AllCategories/AllCategories';
+import Specificategory from './components/Specificategory/Specificategory';
+import SubCategories from './components/SubCategories/SubCategories';
 
 function App() {
 
@@ -39,14 +42,18 @@ function App() {
       saveUserData()
     }
   }, [])
-
+  
   const routers = createBrowserRouter([
     {
       path: '', element: <Layout userData={userData} />, children: [
         { index: true, element: <YesOrNo userData={userData}> <Home /></YesOrNo> },
         { path: 'cart', element: <YesOrNo userData={userData}> <Cart /></YesOrNo> },
-        { path: 'product', element: <YesOrNo userData={userData}> <Products /></YesOrNo> },
-        { path: 'cati', element: <YesOrNo userData={userData}> <Categories /></YesOrNo> },
+        { path: 'product', element: <YesOrNo userData={userData}> <Products/></YesOrNo> },
+        { path: 'cati', element: <YesOrNo userData={userData}> <Categories /></YesOrNo> ,children:[
+         { index: true ,element:<AllCategories/>},
+          {path: 'Specificategory/:id',element:<Specificategory/>},
+          {path: 'SubCategories',element:<SubCategories/>},
+        ]},
         { path: 'brand', element: <YesOrNo userData={userData}> <Brands /></YesOrNo> },
         { path: 'Register', element: <Register /> },
         { path: 'AddProductDetalis/:id', element: <AddProductDetalis /> },

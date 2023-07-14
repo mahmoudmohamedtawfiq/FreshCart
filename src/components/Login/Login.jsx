@@ -80,8 +80,8 @@ if(!value.password){
 
            
             <label htmlFor="password">password :</label>
-            <input onChange={formik.handleChange} value={formik.values.password} type='password' className='form-control' id='password' name='password'></input>
-            {formik.touched&&formik.errors.password?<div className="alert alert-danger mt-3">{formik.errors.password}</div>:null}
+            <input onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.password} type='password' className='form-control' id='password' name='password'></input>
+            {formik.errors.password && formik.touched.password?<div className="alert alert-danger mt-3">{formik.errors.password}</div>:null}
              
              
 

@@ -5,7 +5,7 @@ export default function Footer() {
 
   return <> 
     <footer className='overflow-hidden '>
-      <div className="container-fluid bg-dark mt-5 text-white    ">
+      <div className="container-fluid bg-dark mt-5 text-white fooooter ">
         <div className="row    border-botton py-3">
           <div className="col-md-12 p-2 ">
             <h2 className='opacity-75'>Get the Fresh Cart app </h2>

@@ -1,12 +1,16 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Spaner from './../spaner/Spaner';
 import { useParams } from 'react-router-dom';
 import Slider from 'react-slick';
+import { ApiContext } from '../../Context/ApiContext';
+import { toast } from 'react-hot-toast';
+
 
 
 
 export default function AddProductDetalis() {
+    const {addProductTocart} = useContext(ApiContext);
 
     const settings = {
         dots: true,
@@ -32,11 +36,22 @@ export default function AddProductDetalis() {
 
     };
 
+    async function handleBtnToCart(id){
+
+        const {response} = await addProductTocart(id);
+    
+        if (response?.data?.status === 'success') {
+    
+          toast.success(response.data.message);
+          
+        }
+      }
+
     useEffect(() => {
 
         productDetulse()
 
-    }, [])
+    }, []);
 
 
 
@@ -61,8 +76,7 @@ export default function AddProductDetalis() {
                             <p> <span>{addproduct.price} Egypt</span></p>
                             <p><span><i className='fas fa-star rating-color font-sm '>{addproduct.ratingsQuantity}</i> Egy</span></p>
                         </div>
-                        <button className='btn btn-success w-100 mt-2'>+ Add to cart</button>
-                    </div>
+                        <button onClick={() => (handleBtnToCart(addproduct._id))} className='btn bg-main text-white w-100'>+ Add </button>                    </div>
                 </div>
             </div>
         </div>

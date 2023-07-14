@@ -83,6 +83,33 @@ a , a:hover{
 
 
 
+.ahmed{
+    height: 100vh;
+    width: 200PX;
+  list-style: none;
+padding: 0;
+align-items: center;
+};
+
+.liforcategoies:hover{
+background-color: #0aad0a;
+border: 10px;
+
+}
+.navandtabs{
+display: flex !important ;
+flex-direction:column !important ;
+
+}
+
+.liforcategoies{
+    padding: 10px;
+    margin: 10px;
+border-radius: 20px;
+background-color: #474554;
+
+color: white;
+}
 .fatherspner{
 
 background-color:white;

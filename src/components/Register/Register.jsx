@@ -29,7 +29,7 @@ const [errorformik, seterrorformik] = useState()
   function validate(value) {
 
     let error = {}
-
+// validate for name
     if (!value.name) {
       error.name = 'Required'
 
@@ -43,7 +43,7 @@ const [errorformik, seterrorformik] = useState()
       error.email = 'Invalid email address'
     }
    
-    // validate password
+    // validate phone
     if(!value.phone){
       error.phone='Required'
     }else if (!/^[0125][0-9]{10}$/i.test(value.phone)){
@@ -105,17 +105,17 @@ if(!value.password){
             {formik.touched.phone && formik.errors.phone ? <div className="alert alert-danger">{formik.errors.phone}</div> : null}
             
             <label htmlFor="password">password :</label>
-            <input onChange={formik.handleChange} value={formik.values.password} type='password' className='form-control' id='password' name='password'></input>
-            {formik.touched&&formik.errors.password?<div className="alert alert-danger mt-3">{formik.errors.password}</div>:null}
+            <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.password} type='password' className='form-control' id='password' name='password'></input>
+            {formik.touched.password&&formik.errors.password?<div className="alert alert-danger mt-3">{formik.errors.password}</div>:null}
              
               <label htmlFor="rePassword">rePassword :</label>
-              <input onChange={formik.handleChange} value={formik.values.rePassword} type='password' className='form-control' id='rePassword' name='rePassword'></input>
-              {formik.touched&&formik.errors.rePassword?<div className="alert alert-danger mt-3">{formik.errors.rePassword}</div>:null}
+              <input onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.rePassword} type='password' className='form-control' id='rePassword' name='rePassword'></input>
+              {formik.touched.rePassword&&formik.errors.rePassword?<div className="alert alert-danger mt-3">{formik.errors.rePassword}</div>:null}
 
 
 
 
-{isloding? <button type="button" class="btn btn-success mt-3"><i class="fas fa-spinner fa-spin"></i></button>:            <button disabled={!(formik.dirty && formik.isValid)} type="submit" class="btn btn-success mt-3">submit</button>}
+{isloding? <button type="button" class="btn btn-success mt-3"><i class="fas fa-spinner fa-spin"></i></button>:<button disabled={!(formik.dirty && formik.isValid)} type="submit" class="btn btn-success mt-3">submit</button>}
           </div>
         </div>  
       </form>
